@@ -24,6 +24,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/service/:serviceId'element={<TreatmentDetails></TreatmentDetails>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/treatmentdetails' element={<TreatmentDetails></TreatmentDetails>}></Route>
         <Route path='*' element={<PageNotFound></PageNotFound>}></Route>
       </Routes>
       <Footer></Footer>

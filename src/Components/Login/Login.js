@@ -1,7 +1,9 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import './Login.css';
+import auth from '../../firebase.init';
 
 const Login = () => {
   const navigate = useNavigate();
@@ -11,10 +13,20 @@ const Login = () => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email,password);
+    signInWithEmailAndPassword(email, password)
   
   } 
 
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useSignInWithEmailAndPassword(auth);
+
+if(user){
+  navigate('/treatmentdetails')
+}
 
   const navigateRegister = event =>{
     navigate('/register')
