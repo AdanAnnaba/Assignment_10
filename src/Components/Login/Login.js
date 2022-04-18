@@ -1,13 +1,17 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import './Login.css';
 import auth from '../../firebase.init';
 
 const Login = () => {
   const navigate = useNavigate();
 
+  const [signInWithGoogle, usergoogle, loadinggoogle, errorgoogle] = useSignInWithGoogle(auth);
+if(usergoogle){
+  navigate('/home')
+}
 
   const handleSubmit = event =>{
     event.preventDefault();
@@ -24,10 +28,9 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
-// if(user){
-//   // navigate(Form, {replace:true});
-// }
-
+if(user){
+  navigate('/home');
+}
   const navigateRegister = event =>{
     navigate('/register')
   }
@@ -44,14 +47,12 @@ const Login = () => {
     <Form.Label>Password</Form.Label>
     <Form.Control type="password" name='password' placeholder="Enter Password" required />
   </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
+  <Button className='w-100' variant="primary" type="submit">
     Submit
   </Button>
-</Form>
+    </Form>
     <p className='toggle' onClick={navigateRegister}>Please Register</p>
+    <div className='text-center'><button className='w-25 btn btn-primary'onClick={()=>signInWithGoogle()}>Sign in with google</button></div>
         </div>
     );
 };

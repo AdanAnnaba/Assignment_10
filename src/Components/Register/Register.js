@@ -1,11 +1,17 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Register = () => {
   const navigate = useNavigate();
+
+  const [signInWithGoogle, user1, loadinggoogle, errorgoogle] = useSignInWithGoogle(auth);
+
+  if(user1){
+    navigate('/home');
+  }
 
 
   const [createUserWithEmailAndPassword,
@@ -50,14 +56,12 @@ const Register = () => {
     <Form.Label>Password</Form.Label>
     <Form.Control name='password' type="password" placeholder="Enter Password" />
     </Form.Group>
-    <Form.Group className="mb-3" controlId="formBasicCheckbox">
-    <Form.Check type="checkbox" label="Check me out" />
-    </Form.Group>
-    <Button variant="primary" type="submit">
+    <Button className='w-100' variant="primary" type="submit">
     Submit
     </Button>
     </Form>
-<p className='toggle' onClick={navigateLogin}>Please Login</p>
+    <p className='toggle' onClick={navigateLogin}>Please Login</p>
+    <div className='text-center'><button className='w-25 btn btn-primary'onClick={()=>signInWithGoogle()}>Sign in with google</button></div>
         </div>
     );
 };
