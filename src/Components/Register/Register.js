@@ -1,23 +1,32 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Register = () => {
-  const nameRef = useRef('');
-  const emailRef = useRef('');
-  const passwordRef = useRef('');
   const navigate = useNavigate();
+
+
+  const [createUserWithEmailAndPassword,
+    user,
+    loading,
+    error,
+  ] = useCreateUserWithEmailAndPassword(auth);
+
+  
 
 
   const handleSubmit = event =>{
     event.preventDefault();
-    const name = nameRef.current.value;
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-
+    const name = event.target.name.value;
+    const email = event.target.email.value;
+    const password = event.target.password.value;
+    createUserWithEmailAndPassword(email, password, name);  
+    console.log(name);
   
   } 
-  const navigatelogin = event =>{
+  const navigateLogin = event =>{
     navigate('/login')
   }
 
@@ -26,28 +35,28 @@ const Register = () => {
     return (
 
              <div className='login-form'>
-            <Form onSubmit={handleSubmit} className='w-25 mx-auto'>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form onSubmit={handleSubmit} className='w-25 mx-auto'>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Your Name</Form.Label>
-    <Form.Control type="text" placeholder="Enter Name" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicEmail">
+    <Form.Control name='name' type="text" placeholder="Enter Name" />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-  </Form.Group>
+    <Form.Control name='email' type="email" placeholder="Enter email" />
+    </Form.Group>
 
-  <Form.Group className="mb-3" controlId="formBasicPassword">
+    <Form.Group className="mb-3" controlId="formBasicPassword">
     <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Enter Password" />
-  </Form.Group>
-  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+    <Form.Control name='password' type="password" placeholder="Enter Password" />
+    </Form.Group>
+    <Form.Group className="mb-3" controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
+    </Form.Group>
+    <Button variant="primary" type="submit">
     Submit
-  </Button>
-</Form>
-<p className='toggle' onClick={navigatelogin}>Please Login</p>
+    </Button>
+    </Form>
+<p className='toggle' onClick={navigateLogin}>Please Login</p>
         </div>
     );
 };
