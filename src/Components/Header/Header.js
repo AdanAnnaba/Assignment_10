@@ -22,6 +22,8 @@ const Header = () => {
             </div>
            <div className='link'>
            <Link to='/home'style={{ textDecoration: 'none'}}><span className='m-3'>Home</span></Link>
+           <Link to='/blogs'style={{ textDecoration: 'none'}}><span className='m-3'>Blogs</span></Link>
+           <Link to='/about'style={{ textDecoration: 'none'}}><span className='m-3'>About</span></Link>
             { user ?
                <button className='btn btn-primary' onClick={handleLogOut}>Logout</button>
             :
