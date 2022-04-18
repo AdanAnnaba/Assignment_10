@@ -1,0 +1,25 @@
+[
+  {
+      "id": "1",
+      "name": "Gum Problems",
+      "price": 250,
+      "img": "images/problem1.jpg",
+      "description": "Do your gums bleed easily? Are they tender? Do you notice them pulling away from your teeth? You might have gum disease (gingivitis). A buildup of plaque, a sticky bacteria, below the gum line causes it. Left untreated, it can at some point cause bone loss, and your teeth might shift or become loose. "
+    },
+  {
+      "id": "2",
+      "name": "Stained Teeth",
+      "price": 320,
+      "img": "images/problem2.jpg",
+      "description": "Your teeth are like your laundry: The right approach will remove many stains. Foods, medications, tobacco, and trauma are some of the things that can discolor your teeth.  You have three options for whitening them. Your dentist can use a whitening agent and a special light. "
+    },
+  {
+      "id": "3",
+      "name": "Toothache",
+      "price": 335,
+      "img": "images/problem3.jpg",
+      "description": "You've made a dentist appointment, and it can't come soon enough. Meanwhile, it can help to rinse your mouth with warm water, floss to remove food caught between teeth, and take an over-the-counter pain reliever."
+    }
+ 
+ 
+]

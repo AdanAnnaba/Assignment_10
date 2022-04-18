@@ -1,0 +1,11 @@
+.slide img{
+    height: 500px;
+    width: 100%;
+}
+.insurance{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    margin: 35px;
+    margin-left: 55px;
+}

@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: lightgray;
+}
+.dental-care{
+    display: flex;
+    align-items: center;
+    color: #6f73ff;
+}
+.header img{
+    height: 80px;
+    border: none;
+    border-radius: 30px;
+}
+.link{
+    margin-right: 20px;
+    margin-left: 50px;
+}
+.link p{
+    text-decoration: none;
+
+}

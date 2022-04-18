@@ -1,0 +1,9 @@
+.footer{
+    background-color: gray;
+    height: 35px;
+}
+.footer p{
+    text-align: center;
+    color: aliceblue;
+    font-size: larger;
+}

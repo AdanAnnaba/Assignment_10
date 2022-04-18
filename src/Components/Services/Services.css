@@ -1,0 +1,14 @@
+.service{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 25px;
+    margin-left: 40px;
+
+}
+@media only screen and (max-width:576px) {
+    .service{grid-template-columns: repeat(1, 1fr)}  ;
+}
+.service img{
+    height: 200px;
+    width: auto;
+}
