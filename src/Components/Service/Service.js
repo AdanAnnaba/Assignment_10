@@ -20,7 +20,7 @@ const Service = ({data}) => {
     <Card.Text>
       {description}
     </Card.Text>
-    <Button onClick={()=>navigateTo(id)} variant="primary">Go somewhere</Button>
+    <Button onClick={()=>navigateTo(id)} variant="primary">Take This Service</Button>
   </Card.Body>
 </Card>
         </div>

@@ -24,15 +24,16 @@ const Login = () => {
     error,
   ] = useSignInWithEmailAndPassword(auth);
 
-if(user){
-  navigate('/treatmentdetails')
-}
+// if(user){
+//   // navigate(Form, {replace:true});
+// }
 
   const navigateRegister = event =>{
     navigate('/register')
   }
     return (
         <div className='login-form'>
+          <h2 className='text-center'>Please Login</h2>
             <Form onSubmit={handleSubmit} className='w-25 mx-auto'>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
